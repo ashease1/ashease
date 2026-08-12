@@ -1,0 +1,920 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Silent Studios â€” Professional music production, media scoring, mixing & mastering, and vocal recording in Bangalore. Led by Asish Agrahari. Book a session today.">
+  <meta name="keywords"
+    content="music studio Bangalore, music production, sound design, mixing mastering, vocal recording, voiceover, Silent Studios, Asish Agrahari">
+  <meta property="og:title" content="Silent Studios | Music &amp; Audio Services">
+  <meta property="og:description"
+    content="Your vision, heard in high definition. Professional audio production in Bangalore.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://silentstudio.appv.biz">
+  <title>Silent Studios | Music &amp; Audio Services â€” Bangalore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Silent Studios home">
+        <span class="logo-silent">SILENT</span>
+        <span class="logo-studio">STUDIOS</span>
+      </a>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#studios">Studios</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#portfolio">Work</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">Studio</a></li>
+        <li><a href="#booking" class="nav-cta" id="navBookBtn">Book Session</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="admin-login-btn" id="adminLoginBtn" type="button" title="Admin login">Admin</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark or light mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-5v2m0 16v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false"
+          aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="hero" id="hero" aria-labelledby="heroTitle">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-spotlight"></div>
+      <div class="hero-particles" id="heroParticles"></div>
+    </div>
+
+    <!-- Decorative mic illustration -->
+    <div class="hero-mic-stage" aria-hidden="true">
+      <svg viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg" class="mic-svg">
+        <defs>
+          <radialGradient id="micGrad" cx="50%" cy="30%" r="60%">
+            <stop offset="0%" stop-color="#d0d0d0" />
+            <stop offset="60%" stop-color="#888" />
+            <stop offset="100%" stop-color="#2a2a2a" />
+          </radialGradient>
+          <filter id="micGlow">
+            <feGaussianBlur stdDeviation="6" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <!-- Glow halo -->
+        <ellipse cx="100" cy="120" rx="90" ry="90" fill="rgba(0,229,255,0.06)" />
+        <!-- Body -->
+        <rect x="65" y="35" width="70" height="150" rx="35" fill="url(#micGrad)" stroke="#444" stroke-width="1" />
+        <!-- Grid lines -->
+        <line x1="65" y1="68" x2="135" y2="68" stroke="#fff" stroke-width="0.4" opacity="0.25" />
+        <line x1="65" y1="88" x2="135" y2="88" stroke="#fff" stroke-width="0.4" opacity="0.25" />
+        <line x1="65" y1="108" x2="135" y2="108" stroke="#fff" stroke-width="0.4" opacity="0.25" />
+        <line x1="65" y1="128" x2="135" y2="128" stroke="#fff" stroke-width="0.4" opacity="0.25" />
+        <line x1="65" y1="148" x2="135" y2="148" stroke="#fff" stroke-width="0.4" opacity="0.25" />
+        <line x1="65" y1="168" x2="135" y2="168" stroke="#fff" stroke-width="0.4" opacity="0.25" />
+        <!-- Cyan accent border -->
+        <rect x="62" y="32" width="76" height="156" rx="38" fill="none" stroke="#00E5FF" stroke-width="1.2"
+          opacity="0.8" filter="url(#micGlow)" />
+        <!-- Pulse ring -->
+        <ellipse cx="100" cy="110" rx="40" ry="76" fill="none" stroke="#00E5FF" stroke-width="0.8" opacity="0.4"
+          class="mic-pulse-ring" />
+        <!-- Neck -->
+        <rect x="86" y="185" width="28" height="48" rx="5" fill="#3a3a3a" />
+        <!-- Mount -->
+        <rect x="72" y="228" width="56" height="14" rx="7" fill="#2a2a2a" stroke="#444" stroke-width="1" />
+        <!-- Stand -->
+        <rect x="95" y="242" width="10" height="110" fill="#1e1e1e" stroke="#333" stroke-width="0.5" />
+        <!-- Base -->
+        <ellipse cx="100" cy="352" rx="44" ry="12" fill="#151515" stroke="#333" stroke-width="1" />
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-tag reveal-fade">â€” Professional Audio Production â€” Bangalore</div>
+      <h1 class="hero-title reveal-up" id="heroTitle">SILENT STUDIOS</h1>
+      <h2 class="hero-subtitle reveal-up" style="--delay:0.2s">
+        YOUR VISION, HEARD IN<br>
+        <span class="gradient-text">HIGH DEFINITION.</span>
+      </h2>
+      <p class="hero-desc reveal-up" style="--delay:0.35s">
+        Where silence becomes your greatest sound. Premium music production, media scoring, and audio post-production â€”
+        crafted for artists and creators who refuse to settle for ordinary.
+      </p>
+      <div class="hero-actions reveal-up" style="--delay:0.5s">
+        <a href="#booking" class="btn-primary" id="heroBookBtn">Book a Session</a>
+        <a href="#portfolio" class="btn-secondary" id="heroListenBtn">Listen to Work</a>
+      </div>
+      <div class="hero-scroll-hint reveal-up" style="--delay:0.7s" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• STATS BAND â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="stats-band" aria-label="Studio statistics">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal-fade">
+          <div><span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span></div>
+          <span class="stat-label">Tracks Produced</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item reveal-fade" style="--delay:0.1s">
+          <div><span class="stat-number" data-target="150">0</span><span class="stat-suffix">+</span></div>
+          <span class="stat-label">Artists Worked With</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item reveal-fade" style="--delay:0.2s">
+          <div><span class="stat-number" data-target="8">0</span><span class="stat-suffix">+</span></div>
+          <span class="stat-label">Years of Excellence</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item reveal-fade" style="--delay:0.3s">
+          <div><span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span></div>
+          <span class="stat-label">Client Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• SERVICES â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="section services" id="services" aria-labelledby="servicesTitle">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">What We Create</span>
+        <h2 class="section-title" id="servicesTitle">Premium <span class="gradient-text">Services</span></h2>
+        <p class="section-desc">Every great record starts in silence. Here's how we transform your artistic vision into
+          a masterpiece that resonates deeply.</p>
+      </div>
+      <div class="services-grid">
+
+        <!-- Music Production -->
+        <div class="service-card reveal-up" style="--delay:0.1s" id="svcMusicProd">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="24" cy="24" r="22" stroke="#00E5FF" stroke-width="1.5" opacity="0.3" />
+              <path d="M18 33V17l18 8-18 8z" fill="#00E5FF" />
+              <circle cx="14" cy="37" r="4" fill="none" stroke="#00E5FF" stroke-width="1.5" />
+              <line x1="18" y1="37" x2="18" y2="19" stroke="#00E5FF" stroke-width="1.5" />
+            </svg>
+          </div>
+          <h3>Music Production</h3>
+          <p>Full-track arrangement and composition across all genres. From hip-hop beats to orchestral scores â€” we
+            craft soundscapes that move people.</p>
+          <ul class="service-list">
+            <li>Custom music across all genres</li>
+            <li>Original background scores for media</li>
+            <li>Professional MIDI &amp; arrangement</li>
+            <li>Full orchestration</li>
+          </ul>
+          <div class="service-cta"><a href="#booking" class="service-link">Start a Project â†’</a></div>
+        </div>
+
+        <!-- Media Scoring (Featured) -->
+        <div class="service-card featured reveal-up" style="--delay:0.2s" id="svcMediaScore">
+          <div class="service-badge">Most Popular</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="24" cy="24" r="22" stroke="#00E5FF" stroke-width="1.5" opacity="0.3" />
+              <rect x="8" y="22" width="4" height="14" rx="2" fill="#00E5FF" />
+              <rect x="16" y="16" width="4" height="20" rx="2" fill="#00E5FF" />
+              <rect x="24" y="10" width="4" height="28" rx="2" fill="#00E5FF" />
+              <rect x="32" y="18" width="4" height="18" rx="2" fill="#00E5FF" />
+              <rect x="40" y="24" width="4" height="12" rx="2" fill="#00E5FF" />
+            </svg>
+          </div>
+          <h3>Media Scoring</h3>
+          <p>Bespoke soundtracks that amplify emotion and drive narrative. Trusted by filmmakers, ad agencies, and
+            digital creators.</p>
+          <ul class="service-list">
+            <li>Film &amp; documentary scoring</li>
+            <li>Commercial &amp; ad soundtracks</li>
+            <li>YouTube &amp; podcast intros</li>
+            <li>Game audio &amp; interactive media</li>
+          </ul>
+          <div class="service-cta"><a href="#booking" class="service-link">Start a Project â†’</a></div>
+        </div>
+
+        <!-- Post Production -->
+        <div class="service-card reveal-up" style="--delay:0.3s" id="svcPostProd">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="24" cy="24" r="22" stroke="#00E5FF" stroke-width="1.5" opacity="0.3" />
+              <path d="M10 24 Q16 12 24 24 Q32 36 38 24" stroke="#00E5FF" stroke-width="2" fill="none"
+                stroke-linecap="round" />
+              <circle cx="24" cy="24" r="3" fill="#00E5FF" />
+              <path d="M6 24h6M36 24h6" stroke="#00E5FF" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Post-Production</h3>
+          <p>Industry-standard mixing, mastering, and vocal processing. We bring clarity, depth, and professional-grade
+            quality to your recordings.</p>
+          <ul class="service-list">
+            <li>Precision mixing &amp; balancing</li>
+            <li>Mastering to streaming standards</li>
+            <li>Vocal tuning &amp; production</li>
+            <li>Noise removal &amp; audio cleanup</li>
+          </ul>
+          <div class="service-cta"><a href="#booking" class="service-link">Start a Project â†’</a></div>
+        </div>
+
+        <!-- Vocal & Voiceover (full width) -->
+        <div class="service-card wide reveal-up" style="--delay:0.4s" id="svcVocal">
+          <div class="service-content-wide">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="24" cy="24" r="22" stroke="#00E5FF" stroke-width="1.5" opacity="0.3" />
+                <rect x="18" y="6" width="12" height="22" rx="6" fill="none" stroke="#00E5FF" stroke-width="1.5" />
+                <path d="M10 24c0 7.73 6.27 14 14 14s14-6.27 14-14" stroke="#00E5FF" stroke-width="1.5" fill="none"
+                  stroke-linecap="round" />
+                <line x1="24" y1="38" x2="24" y2="44" stroke="#00E5FF" stroke-width="1.5" />
+                <line x1="18" y1="44" x2="30" y2="44" stroke="#00E5FF" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <h3>Vocal &amp; Voiceover Services</h3>
+              <p>High-fidelity vocal recording for artists, narrators, and brands. Professional voiceover production for
+                advertisements, e-learning, corporate projects, and more.</p>
+            </div>
+          </div>
+          <ul class="service-list horizontal">
+            <li>Singer &amp; artist recording</li>
+            <li>Professional voiceover production</li>
+            <li>Advertisement narrations</li>
+            <li>Corporate &amp; e-learning audio</li>
+            <li>Online music lessons</li>
+          </ul>
+          <div class="service-cta"><a href="#booking" class="service-link">Start a Project â†’</a></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• STUDIO SPACES â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="section studios" id="studios" aria-labelledby="studiosTitle">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Our Spaces</span>
+        <h2 class="section-title" id="studiosTitle">Studio <span class="gradient-text">Rooms</span></h2>
+        <p class="section-desc">Three purpose-built environments â€” acoustically treated, professionally equipped, and ready for your next session.</p>
+      </div>
+      <div class="studios-grid" id="studiosGrid"></div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• PROJECTS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="section projects" id="projects" aria-labelledby="projectsTitle">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Featured Work</span>
+        <h2 class="section-title" id="projectsTitle">Recent <span class="gradient-text">Projects</span></h2>
+        <p class="section-desc">From chart-ready singles to cinematic scores â€” explore our latest productions across music and media.</p>
+      </div>
+      <div class="filter-tabs reveal-up" id="projectFilters" role="tablist">
+        <button class="filter-tab active" data-filter="all" role="tab">All</button>
+        <button class="filter-tab" data-filter="music-production" role="tab">Music Production</button>
+        <button class="filter-tab" data-filter="media-scoring" role="tab">Media Scoring</button>
+        <button class="filter-tab" data-filter="post-production" role="tab">Post-Production</button>
+        <button class="filter-tab" data-filter="vocal-voiceover" role="tab">Vocal &amp; Voiceover</button>
+      </div>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• PORTFOLIO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="section portfolio" id="portfolio" aria-labelledby="portfolioTitle">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Hear Our Work</span>
+        <h2 class="section-title" id="portfolioTitle">Audio <span class="gradient-text">Portfolio</span></h2>
+        <p class="section-desc">Press play to hear our work. As admin, click <strong>Admin</strong> in the nav to add or change tracks.</p>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid"></div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• VIDEO PORTFOLIO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="section video-portfolio" id="video-portfolio" aria-labelledby="videoPortfolioTitle">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Watch Our Work</span>
+        <h2 class="section-title" id="videoPortfolioTitle">Video <span class="gradient-text">Portfolio</span></h2>
+        <p class="section-desc">Visual stories brought to life with our cinematic touch. Add your video files by
+          replacing the placeholders below.</p>
+      </div>
+      <div class="video-grid" id="videosGrid"></div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• PHOTO GALLERY â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="section gallery" id="gallery" aria-labelledby="galleryTitle">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Visual Stories</span>
+        <h2 class="section-title" id="galleryTitle">Studio <span class="gradient-text">Gallery</span></h2>
+        <p class="section-desc">Peek inside Silent Studios â€” sessions, gear, and the creative energy behind every project.</p>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• PACKAGES â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="section packages" id="packages" aria-labelledby="packagesTitle">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Transparent Pricing</span>
+        <h2 class="section-title" id="packagesTitle">Session <span class="gradient-text">Packages</span></h2>
+        <p class="section-desc">Flexible options for every creator â€” from quick sessions to full-scale production.</p>
+      </div>
+      <div class="packages-grid" id="packagesGrid"></div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TESTIMONIALS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="section testimonials" id="testimonials" aria-labelledby="testimonialsTitle">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Client Voices</span>
+        <h2 class="section-title" id="testimonialsTitle">What Artists <span class="gradient-text">Say</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card glass reveal-up" style="--delay:0.1s">
+          <div class="testimonial-stars" aria-label="5 stars">â˜…â˜…â˜…â˜…â˜…</div>
+          <blockquote>"Asish transformed my rough demo into a release-ready track. The attention to detail in mixing and the creative input during production was beyond what I expected."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RK</div>
+            <div>
+              <div class="testimonial-name">Rahul K.</div>
+              <div class="testimonial-role">Independent Artist</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card glass reveal-up" style="--delay:0.2s">
+          <div class="testimonial-stars" aria-label="5 stars">â˜…â˜…â˜…â˜…â˜…</div>
+          <blockquote>"We needed a custom score for our brand film in 48 hours. Silent Studios delivered a cinematic soundtrack that elevated our entire campaign. Highly recommended."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PM</div>
+            <div>
+              <div class="testimonial-name">Priya M.</div>
+              <div class="testimonial-role">Creative Director, Ad Agency</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card glass reveal-up" style="--delay:0.3s">
+          <div class="testimonial-stars" aria-label="5 stars">â˜…â˜…â˜…â˜…â˜…</div>
+          <blockquote>"The vocal booth and live room are top-notch. Recording here feels professional from the moment you walk in. Best studio experience in Bangalore."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AS</div>
+            <div>
+              <div class="testimonial-name">Ananya S.</div>
+              <div class="testimonial-role">Singer &amp; Songwriter</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• ABOUT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="section about" id="about" aria-labelledby="aboutTitle">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-visual reveal-up">
+          <div class="about-card glass">
+            <div class="about-avatar">
+              <div class="avatar-ring" aria-hidden="true"></div>
+              <div class="avatar-initials" aria-label="Asish Agrahari initials">AA</div>
+            </div>
+            <div class="about-card-info">
+              <h3 class="about-name">Asish Agrahari</h3>
+              <p class="about-role">Founder &amp; Audio Director</p>
+              <div class="about-badges">
+                <span class="badge">Music Producer</span>
+                <span class="badge">Sound Engineer</span>
+                <span class="badge">Composer</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-studio-tag reveal-fade" style="--delay:0.3s">
+            <div class="tag-dot" aria-hidden="true"></div>
+            <span>Available for Bookings</span>
+          </div>
+        </div>
+
+        <div class="about-content reveal-up" style="--delay:0.2s">
+          <span class="section-tag">The Studio</span>
+          <h2 class="section-title" id="aboutTitle">Silence is where <span class="gradient-text">great music</span>
+            begins.</h2>
+          <p>Silent Studios was born from a singular belief: that every artist deserves a professional, creatively
+            nurturing environment to realize their sonic vision.</p>
+          <p>Led by <strong>Asish Agrahari</strong>, our studio in JP Nagar, Bangalore combines state-of-the-art
+            equipment with deep expertise in music theory, sound psychology, and the nuanced craft of audio production.
+          </p>
+          <p>From independent artists and emerging creators to established media production houses â€” we've served them
+            all, and the results speak through the music.</p>
+          <address class="about-location glass" style="font-style:normal;">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="20"
+              height="20" style="flex-shrink:0;margin-top:2px">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"
+                fill="#00E5FF" />
+            </svg>
+            <span>No. 62, 2nd Cross, JP Nagar Phase 7, Near Aishwarya Apartment, Bangalore, Karnataka 560078</span>
+          </address>
+          <a href="#booking" class="btn-primary" id="aboutBookBtn">Collaborate With Us</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• PROCESS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="section process" id="process" aria-labelledby="processTitle">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">How It Works</span>
+        <h2 class="section-title" id="processTitle">Your <span class="gradient-text">Creative Journey</span></h2>
+        <p class="section-desc">From the first note of silence to the final master â€” a seamless, professional process
+          designed around you.</p>
+      </div>
+      <div class="process-steps" role="list">
+
+        <div class="process-step reveal-up" style="--delay:0.1s" role="listitem">
+          <div class="step-number" aria-hidden="true">01</div>
+          <div class="step-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20 4C11.16 4 4 11.16 4 20s7.16 16 16 16 16-7.16 16-16S28.84 4 20 4zm0 6a6 6 0 110 12 6 6 0 010-12zm0 22c-4 0-7.58-1.76-10.06-4.54C11.72 25.28 15.72 24 20 24s8.28 1.28 10.06 3.46C27.58 30.24 24 32 20 32z"
+                fill="#00E5FF" />
+            </svg>
+          </div>
+          <h3>Consult &amp; Book</h3>
+          <p>Tell us about your project, goals, and timeline. Book a free consultation â€” we'll map out the perfect sonic
+            plan together.</p>
+        </div>
+
+        <div class="process-connector reveal-fade" style="--delay:0.25s" aria-hidden="true"></div>
+
+        <div class="process-step reveal-up" style="--delay:0.3s" role="listitem">
+          <div class="step-number" aria-hidden="true">02</div>
+          <div class="step-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="14" y="6" width="12" height="20" rx="6" fill="none" stroke="#00E5FF" stroke-width="2" />
+              <path d="M8 22c0 6.627 5.373 12 12 12s12-5.373 12-12" stroke="#00E5FF" stroke-width="2" fill="none"
+                stroke-linecap="round" />
+              <line x1="20" y1="34" x2="20" y2="38" stroke="#00E5FF" stroke-width="2" />
+              <line x1="14" y1="38" x2="26" y2="38" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Create &amp; Record</h3>
+          <p>We enter the creative zone â€” composing, arranging, recording, and refining until every element feels
+            exactly right.</p>
+        </div>
+
+        <div class="process-connector reveal-fade" style="--delay:0.45s" aria-hidden="true"></div>
+
+        <div class="process-step reveal-up" style="--delay:0.5s" role="listitem">
+          <div class="step-number" aria-hidden="true">03</div>
+          <div class="step-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20 2L4 10v6c0 9.9 6.84 19.14 16 21.5C29.16 35.14 36 25.9 36 16v-6L20 2zm-2 28l-6-6 2.82-2.82L18 24.36l9.18-9.18L30 18l-12 12z"
+                fill="#00E5FF" />
+            </svg>
+          </div>
+          <h3>Mix, Master &amp; Deliver</h3>
+          <p>Precision mixing, professional mastering, and delivery in all required formats â€” ready for streaming,
+            broadcast, or release.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• BOOKING HUB â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="section booking" id="booking" aria-labelledby="bookingTitle">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Let's Make Something Great</span>
+        <h2 class="section-title" id="bookingTitle">Book Your <span class="gradient-text">Session</span></h2>
+        <p class="section-desc">Choose your preferred booking method â€” use our advanced scheduler or pick a time on Calendly.</p>
+      </div>
+
+      <div class="booking-tabs reveal-up">
+        <button class="booking-tab active" data-panel="wizard" type="button">Advanced Booking</button>
+        <button class="booking-tab" data-panel="calendly" type="button">Calendly Schedule</button>
+        <button class="booking-tab" data-panel="contact" type="button">Send Message</button>
+      </div>
+
+      <!-- Advanced Booking Wizard -->
+      <div class="booking-panel active" id="panel-wizard">
+        <div class="booking-wizard glass reveal-up">
+          <div class="wizard-steps">
+            <div class="wizard-step-indicator active" data-step="1">
+              <div class="wizard-step-num">1</div>
+              <span class="wizard-step-label">Service</span>
+            </div>
+            <div class="wizard-step-indicator" data-step="2">
+              <div class="wizard-step-num">2</div>
+              <span class="wizard-step-label">Date &amp; Time</span>
+            </div>
+            <div class="wizard-step-indicator" data-step="3">
+              <div class="wizard-step-num">3</div>
+              <span class="wizard-step-label">Details</span>
+            </div>
+            <div class="wizard-step-indicator" data-step="4">
+              <div class="wizard-step-num">4</div>
+              <span class="wizard-step-label">Confirm</span>
+            </div>
+          </div>
+
+          <!-- Step 1: Service & Studio -->
+          <div class="wizard-pane active" data-pane="1">
+            <h3>Select Service &amp; Studio</h3>
+            <p>Choose the service you need and your preferred studio room.</p>
+            <label class="form-group label-block"><strong>Service Type</strong></label>
+            <div class="service-options" id="serviceOptions">
+              <div class="option-card selected" data-value="music-production">
+                <h4>Music Production</h4><span>Composition &amp; arrangement</span>
+              </div>
+              <div class="option-card" data-value="media-scoring">
+                <h4>Media Scoring</h4><span>Film, ads &amp; content</span>
+              </div>
+              <div class="option-card" data-value="post-production">
+                <h4>Post-Production</h4><span>Mix &amp; master</span>
+              </div>
+              <div class="option-card" data-value="vocal-voiceover">
+                <h4>Vocal / Voiceover</h4><span>Recording sessions</span>
+              </div>
+              <div class="option-card" data-value="music-lessons">
+                <h4>Music Lessons</h4><span>Online &amp; in-studio</span>
+              </div>
+            </div>
+            <label class="form-group label-block"><strong>Studio Room</strong></label>
+            <div class="studio-options" id="studioOptions"></div>
+            <label class="form-group label-block"><strong>Package (Optional)</strong></label>
+            <div class="service-options" id="packageOptions"></div>
+          </div>
+
+          <!-- Step 2: Date & Time -->
+          <div class="wizard-pane" data-pane="2">
+            <h3>Pick Date &amp; Time</h3>
+            <p>Select your preferred session date and available time slot.</p>
+            <div class="calendar-header">
+              <h4 id="calendarMonth">Month Year</h4>
+              <div class="calendar-nav">
+                <button type="button" id="calPrev" aria-label="Previous month">â€¹</button>
+                <button type="button" id="calNext" aria-label="Next month">â€º</button>
+              </div>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+            <label class="form-group label-block"><strong>Available Time Slots</strong></label>
+            <div class="time-slots" id="timeSlots"></div>
+            <div class="form-group">
+              <label for="sessionDuration">Session Duration</label>
+              <select id="sessionDuration">
+                <option value="2">2 Hours â€” Quick Session</option>
+                <option value="4" selected>4 Hours â€” Half Day</option>
+                <option value="8">8 Hours â€” Full Day</option>
+                <option value="custom">Custom Duration</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Step 3: Project Details -->
+          <div class="wizard-pane" data-pane="3">
+            <h3>Project Details</h3>
+            <p>Tell us about your vision. Upload reference tracks or briefs (optional).</p>
+            <div class="form-group">
+              <label for="projectName">Project Name</label>
+              <input type="text" id="projectName" placeholder="e.g. Album Track 3, Brand Film Score">
+            </div>
+            <div class="form-group">
+              <label for="projectBrief">Project Brief</label>
+              <textarea id="projectBrief" rows="4" placeholder="Describe your vision, genre, references, timelineâ€¦"></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="budgetRange">Budget Range</label>
+                <select id="budgetRange">
+                  <option value="">Select budget</option>
+                  <option value="under-10k">Under â‚¹10,000</option>
+                  <option value="10k-25k">â‚¹10,000 â€“ â‚¹25,000</option>
+                  <option value="25k-50k">â‚¹25,000 â€“ â‚¹50,000</option>
+                  <option value="50k-plus">â‚¹50,000+</option>
+                  <option value="discuss">Let's discuss</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="urgency">Timeline</label>
+                <select id="urgency">
+                  <option value="flexible">Flexible</option>
+                  <option value="1-week">Within 1 week</option>
+                  <option value="2-weeks">Within 2 weeks</option>
+                  <option value="urgent">Urgent â€” ASAP</option>
+                </select>
+              </div>
+            </div>
+            <label class="form-group label-block"><strong>Upload References</strong> (audio, images, PDF)</label>
+            <div class="file-upload-zone" id="refUploadZone">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+              </svg>
+              <p>Drag &amp; drop files here or <span>browse</span></p>
+              <input type="file" id="refFileInput" multiple accept="audio/*,image/*,.pdf" hidden>
+            </div>
+            <div class="uploaded-files" id="uploadedFiles"></div>
+          </div>
+
+          <!-- Step 4: Contact & Confirm -->
+          <div class="wizard-pane" data-pane="4">
+            <h3>Confirm Booking</h3>
+            <p>Review your details and enter contact information.</p>
+            <div class="booking-summary" id="bookingSummary"></div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bookName">Full Name *</label>
+                <input type="text" id="bookName" required autocomplete="name" placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label for="bookPhone">Phone *</label>
+                <input type="tel" id="bookPhone" required autocomplete="tel" placeholder="+91 XXXXX XXXXX">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="bookEmail">Email *</label>
+              <input type="email" id="bookEmail" required autocomplete="email" placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+              <label for="bookNotes">Additional Notes</label>
+              <textarea id="bookNotes" rows="2" placeholder="Anything else we should know?"></textarea>
+            </div>
+          </div>
+
+          <!-- Success -->
+          <div class="wizard-pane" data-pane="success">
+            <div class="booking-success">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/>
+              </svg>
+              <h3>Booking Request Sent!</h3>
+              <p>Thank you! We'll confirm your session within 24 hours via email or WhatsApp.</p>
+              <a href="https://wa.me/918904799835" class="btn-primary" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="wizard-nav" id="wizardNav">
+            <button type="button" class="btn-secondary" id="wizardPrev" disabled>Back</button>
+            <button type="button" class="btn-primary" id="wizardNext">Continue</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calendly Panel -->
+      <div class="booking-panel" id="panel-calendly">
+        <div class="booking-grid">
+          <div class="booking-calendly reveal-up glass" id="calendlySection" style="grid-column:1/-1">
+            <h3>Schedule via Calendly</h3>
+            <p>Pick a time that works for you. Free 30-minute consultation included with every booking.</p>
+            <div class="calendly-wrapper">
+              <div class="calendly-inline-widget" data-url="https://calendly.com/agrahari778/new-meeting"
+                style="min-width:320px;height:650px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Panel -->
+      <div class="booking-panel" id="panel-contact">
+        <div class="booking-grid">
+          <div class="booking-form reveal-up glass" style="grid-column:1/-1;max-width:640px;margin:0 auto;width:100%" id="contactSection">
+          <h3>Send a Message</h3>
+          <p>Have a specific project in mind? Tell us about it and we'll reach out to discuss.</p>
+          <form id="contactForm" name="contact" method="POST" data-netlify="true" novalidate>
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="e.g. Priya Sharma" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="projectType">Project Type</label>
+              <select id="projectType" name="projectType" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="music-production">Music Production</option>
+                <option value="media-scoring">Media Scoring</option>
+                <option value="post-production">Post-Production</option>
+                <option value="vocal-voiceover">Vocal &amp; Voiceover</option>
+                <option value="music-lessons">Music Lessons</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Tell Us About Your Project</label>
+              <textarea id="message" name="message" placeholder="Describe your vision, timeline, and any references..."
+                rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full" id="submitContactForm">Send Message</button>
+            <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18"
+                height="18">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#00E5FF" />
+              </svg>
+              Message sent! We'll be in touch within 24 hours.
+            </div>
+          </form>
+          <div class="contact-details">
+            <a href="tel:+918904799835" class="contact-link" id="phoneLink">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path
+                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  fill="#00E5FF" />
+              </svg>
+              +91 89047 99835
+            </a>
+            <a href="mailto:agrahari778@gmail.com" class="contact-link" id="emailLink">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  fill="#00E5FF" />
+              </svg>
+              agrahari778@gmail.com
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo" aria-label="Back to top">
+            <span class="logo-silent">SILENT</span>
+            <span class="logo-studio">STUDIOS</span>
+          </a>
+          <p>Where silence becomes your greatest sound. Professional audio production in the heart of Bangalore.</p>
+          <div class="footer-social">
+            <a href="https://silentstudio.appv.biz" target="_blank" rel="noopener noreferrer" class="social-link"
+              id="websiteLink" aria-label="Visit Silent Studios website">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+              </svg>
+            </a>
+            <a href="https://wa.me/918904799835" target="_blank" rel="noopener noreferrer" class="social-link"
+              id="waFooter" aria-label="Contact via WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Music Production</a></li>
+            <li><a href="#services">Media Scoring</a></li>
+            <li><a href="#services">Post-Production</a></li>
+            <li><a href="#services">Vocal Recording</a></li>
+            <li><a href="#services">Music Lessons</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Studio</h4>
+          <ul>
+            <li><a href="#studios">Studio Rooms</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#booking">Book a Session</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact-info">
+          <h4>Contact</h4>
+          <address style="font-style:normal;">
+            <p>No. 62, 2nd Cross,<br>JP Nagar Phase 7,<br>Bangalore, Karnataka 560078</p>
+          </address>
+          <a href="tel:+918904799835">+91 89047 99835</a>
+          <a href="mailto:agrahari778@gmail.com">agrahari778@gmail.com</a>
+          <a href="https://silentstudio.appv.biz" target="_blank" rel="noopener noreferrer">silentstudio.appv.biz</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Silent Studios. All rights reserved. Proprietor: Asish Agrahari</p>
+        <a href="https://silentstudio.appv.biz" target="_blank" rel="noopener noreferrer">silentstudio.appv.biz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• WHATSAPP BUBBLE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <a href="https://wa.me/918904799835?text=Hi%20Silent%20Studios!%20I%27d%20like%20to%20discuss%20a%20project."
+    target="_blank" rel="noopener noreferrer" class="whatsapp-bubble" id="whatsappBubble"
+    aria-label="Chat with a Producer on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• AUDIO VISUALIZER BAR â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="audio-viz-bar" id="audioVizBar" aria-hidden="true"></div>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• LIGHTBOX & MODAL â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalClient" class="project-client"></p>
+      <p id="modalDesc"></p>
+      <div id="modalMedia"></div>
+    </div>
+  </div>
+
+  <!-- ADMIN LOGIN MODAL -->
+  <div class="admin-login-modal" id="adminLoginModal">
+    <div class="admin-login-modal-card glass">
+      <button class="modal-close" id="adminLoginClose" type="button" aria-label="Close">&times;</button>
+      <h3>Admin Login</h3>
+      <p>Sign in to upload audio, videos, photos and edit your website.</p>
+      <form id="adminLoginForm">
+        <div class="form-group">
+          <label for="adminLoginPass">Password</label>
+          <input type="password" id="adminLoginPass" placeholder="Enter admin password" required autocomplete="current-password">
+        </div>
+        <p class="admin-login-error" id="adminLoginError" hidden>Incorrect password. Default: silent2025</p>
+        <button type="submit" class="btn-primary btn-full">Sign In & Edit Site</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL (slide-out) -->
+  <aside class="admin-panel" id="adminPanel">
+    <div class="admin-panel-header">
+      <h3>Edit Website</h3>
+      <button class="modal-close" id="adminPanelClose" type="button" aria-label="Close">&times;</button>
+    </div>
+    <div class="admin-panel-toolbar">
+      <button type="button" class="btn-primary btn-sm" id="adminAddBtn">+ Add New</button>
+      <button type="button" class="btn-secondary btn-sm" id="adminRefreshBtn">Refresh Site</button>
+      <button type="button" class="btn-secondary btn-sm" id="adminExportBtn">Export</button>
+      <label class="btn-secondary btn-sm admin-import-label">
+        Import<input type="file" id="adminImportInput" accept=".json" hidden>
+      </label>
+      <button type="button" class="btn-secondary btn-sm" id="adminLogoutBtn">Logout</button>
+    </div>
+    <nav class="admin-panel-nav" id="adminPanelNav"></nav>
+    <div class="admin-panel-body">
+      <h4 id="adminSectionTitle">Audio Tracks</h4>
+      <div class="admin-list" id="adminList"></div>
+      <div class="admin-form-area glass" id="adminFormArea" hidden></div>
+    </div>
+    <p class="admin-panel-tip">Changes save instantly on this browser. For Netlify: export JSON + put media files in assets/ folder, then redeploy.</p>
+  </aside>
+
+  <!-- ADMIN FAB (when logged in) -->
+  <button class="admin-fab hidden" id="adminFab" type="button" title="Open editor">✏️ Edit Site</button>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="cms.js"></script>
+  <script src="script.js"></script>
+  <script src="site-admin.js"></script>
+</body>
+
+</html>

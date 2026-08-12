@@ -1,0 +1,126 @@
+{
+  "tracks": [
+    { "id": "t1", "title": "Never Giving Up", "genre": "Original Track", "audio": "never-giving-up.mp3" },
+    { "id": "t2", "title": "Reach", "genre": "Original Track", "audio": "reach.mp3" },
+    { "id": "t3", "title": "Heal With Music", "genre": "Original Track", "audio": "heal-with-music.mp3" }
+  ],
+  "projects": [
+    {
+      "id": "p1",
+      "title": "Never Giving Up",
+      "category": "music-production",
+      "client": "Independent Artist",
+      "year": "2025",
+      "description": "Full production — composition, arrangement, mixing and mastering for an uplifting indie track.",
+      "image": "",
+      "audio": "never-giving-up.mp3",
+      "video": ""
+    },
+    {
+      "id": "p2",
+      "title": "Reach",
+      "category": "music-production",
+      "client": "Independent Artist",
+      "year": "2025",
+      "description": "Dynamic pop production with layered vocals and cinematic builds.",
+      "image": "",
+      "audio": "reach.mp3",
+      "video": ""
+    },
+    {
+      "id": "p3",
+      "title": "Heal With Music",
+      "category": "media-scoring",
+      "client": "Wellness Brand",
+      "year": "2024",
+      "description": "Ambient therapeutic score designed for meditation and healing content.",
+      "image": "",
+      "audio": "heal-with-music.mp3",
+      "video": ""
+    },
+    {
+      "id": "p4",
+      "title": "Brand Film Score",
+      "category": "media-scoring",
+      "client": "Commercial Client",
+      "year": "2024",
+      "description": "Custom orchestral-adjacent score for a 60-second brand film.",
+      "image": "",
+      "audio": "",
+      "video": ""
+    }
+  ],
+  "gallery": [],
+  "videos": [
+    {
+      "id": "v1",
+      "title": "Studio Session Reel",
+      "category": "behind-the-scenes",
+      "description": "Behind-the-scenes look at a vocal recording session.",
+      "src": ""
+    },
+    {
+      "id": "v2",
+      "title": "Mixing Masterclass Clip",
+      "category": "tutorial",
+      "description": "A glimpse into our mixing workflow and studio setup.",
+      "src": ""
+    }
+  ],
+  "studios": [
+    {
+      "id": "s1",
+      "name": "Control Room A",
+      "capacity": "2–4 people",
+      "size": "180 sq ft",
+      "description": "Our flagship control room featuring acoustic treatment, Genelec monitors, and a Universal Audio Apollo interface chain for precision mixing and mastering.",
+      "features": ["Genelec 8030 monitors", "UA Apollo x8", "Pro Tools & Logic Pro", "Acoustic-treated environment"],
+      "image": "",
+      "hourlyRate": 2500
+    },
+    {
+      "id": "s2",
+      "name": "Live Room",
+      "capacity": "4–8 people",
+      "size": "320 sq ft",
+      "description": "Spacious live room with isolation booths, ideal for band recordings, vocal sessions, and instrument tracking with natural room ambience.",
+      "features": ["Isolation vocal booth", "Drum kit setup", "Multiple mic preamps", "Variable room dampening"],
+      "image": "",
+      "hourlyRate": 3000
+    },
+    {
+      "id": "s3",
+      "name": "Production Suite",
+      "capacity": "1–2 people",
+      "size": "120 sq ft",
+      "description": "Compact creative space for beat-making, MIDI composition, and voiceover recording — perfect for solo artists and podcast creators.",
+      "features": ["MIDI controller station", "Vocal booth", "Headphone monitoring", "Sample library access"],
+      "image": "",
+      "hourlyRate": 2000
+    }
+  ],
+  "packages": [
+    {
+      "id": "pkg1",
+      "name": "Starter Session",
+      "price": "₹5,000",
+      "duration": "2 hours",
+      "features": ["Studio access", "Basic recording setup", "1 revision mix", "MP3 delivery"]
+    },
+    {
+      "id": "pkg2",
+      "name": "Producer Package",
+      "price": "₹15,000",
+      "duration": "Full day",
+      "featured": true,
+      "features": ["Full studio access", "Production assistance", "3 revision rounds", "WAV + MP3 delivery", "Consultation included"]
+    },
+    {
+      "id": "pkg3",
+      "name": "Full Production",
+      "price": "Custom",
+      "duration": "Project-based",
+      "features": ["End-to-end production", "Unlimited revisions", "Mastering included", "Release-ready files", "Dedicated producer"]
+    }
+  ]
+}

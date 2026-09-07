@@ -87,14 +87,17 @@ function wfBars() {
 }
 
 async function renderPortfolio() {
+  const section = document.getElementById('portfolio');
   const grid = document.getElementById('portfolioGrid');
   if (!grid) return;
   const { tracks } = getContent();
 
   if (!tracks.length) {
-    grid.innerHTML = `<p class="gallery-upload-hint reveal-up">No audio tracks yet. Click <strong>Admin</strong> in the nav, sign in, and add tracks.</p>`;
+    if (section) section.hidden = true;
+    grid.innerHTML = '';
     return;
   }
+  if (section) section.hidden = false;
 
   const cards = await Promise.all(tracks.map(async (t, i) => {
     const src = await mediaUrl(t.audio);
@@ -131,9 +134,18 @@ async function renderPortfolio() {
 
 // ── RENDER: STUDIOS ──────────────────────────
 async function renderStudios() {
+  const section = document.getElementById('studios');
   const grid = document.getElementById('studiosGrid');
   if (!grid) return;
   const { studios } = getContent();
+
+  if (!studios.length) {
+    if (section) section.hidden = true;
+    grid.innerHTML = '';
+    return;
+  }
+  if (section) section.hidden = false;
+
   grid.innerHTML = (await Promise.all(studios.map(async s => {
     const imgSrc = await mediaUrl(s.image);
     return `
@@ -143,7 +155,7 @@ async function renderStudios() {
           ? `<img src="${imgSrc}" alt="${s.name}" loading="lazy">`
           : `<div class="studio-image-placeholder">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
-              <span>Upload image in Admin</span>
+              <span>Studio room</span>
             </div>`}
         <span class="studio-rate">₹${(s.hourlyRate || 0).toLocaleString('en-IN')}/hr</span>
       </div>
@@ -185,7 +197,7 @@ async function renderProjects(filter = 'all') {
   const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
 
   if (!filtered.length) {
-    grid.innerHTML = `<p class="gallery-upload-hint">No projects yet. Click <strong>Admin</strong> to add projects.</p>`;
+    grid.innerHTML = `<p class="gallery-upload-hint">Selected work coming soon.</p>`;
     return;
   }
 
@@ -232,7 +244,7 @@ async function renderGallery() {
   if (!gallery.length) {
     grid.innerHTML = `
       <div class="gallery-upload-hint reveal-up">
-        <p>No photos yet. Click <strong>Admin</strong> in the nav to upload studio images.</p>
+        <p>Gallery coming soon.</p>
       </div>`;
     return;
   }
@@ -260,36 +272,34 @@ async function renderGallery() {
 
 // ── RENDER: VIDEOS ───────────────────────────
 async function renderVideos() {
+  const section = document.getElementById('video-portfolio');
   const grid = document.getElementById('videosGrid');
   if (!grid) return;
   const { videos } = getContent();
 
-  const items = videos.filter(v => v.title);
+  const items = videos.filter(v => v.src);
   if (!items.length) {
-    grid.innerHTML = `<div class="gallery-upload-hint reveal-up" style="grid-column:1/-1">
-      <p>No videos yet. Click <strong>Admin</strong> to upload video reels.</p>
-    </div>`;
+    if (section) section.hidden = true;
+    grid.innerHTML = '';
     return;
   }
+  if (section) section.hidden = false;
 
   grid.innerHTML = (await Promise.all(items.map(async v => {
     const src = await mediaUrl(v.src);
+    if (!src) return '';
     return `
     <div class="video-card reveal-up">
       <div class="video-wrapper">
-        ${src
-          ? `<video controls preload="metadata" src="${src}"></video>`
-          : `<div class="studio-image-placeholder" style="position:absolute;inset:0;height:100%">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg>
-              <span>Upload video in Admin</span>
-            </div>`}
+        <video controls preload="metadata" src="${src}"></video>
       </div>
       <div class="video-info">
         <h3>${v.title}</h3>
         <p>${v.description || CATEGORY_LABELS[v.category] || ''}</p>
       </div>
     </div>`;
-  }))).join('');
+  }))).filter(Boolean).join('');
+  if (!grid.innerHTML.trim() && section) section.hidden = true;
   observeNewReveals(grid);
 }
 

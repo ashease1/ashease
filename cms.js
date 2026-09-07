@@ -6,7 +6,7 @@
 const CMS = {
   STORAGE_KEY: 'silent_studios_content',
   AUTH_KEY: 'silent_studios_admin_auth',
-  ADMIN_PASS: 'silent2025',
+  ADMIN_PASS: 'K9#mPx7vQ2nL4wR8j',
   DB_NAME: 'SilentStudiosMedia',
   DB_VERSION: 1,
 

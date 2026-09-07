@@ -2,7 +2,7 @@
 // SILENT STUDIOS — ADMIN PANEL
 // ============================================
 
-const ADMIN_PASS = 'silent2025'; // Change this password!
+const ADMIN_PASS = (typeof CMS !== 'undefined' && CMS.ADMIN_PASS) || '';
 const STORAGE_KEY = 'silent_studios_content';
 const BOOKINGS_KEY = 'silent_studios_bookings';
 const AUTH_KEY = 'silent_studios_admin_auth';

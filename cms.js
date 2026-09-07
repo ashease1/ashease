@@ -8,7 +8,7 @@ const CMS = {
   AUTH_KEY: 'silent_studios_admin_auth',
   ADMIN_PASS: 'K9#mPx7vQ2nL4wR8j',
   DB_NAME: 'SilentStudiosMedia',
-  DB_VERSION: 1,
+  CONTENT_VERSION: 2,
 
   _db: null,
   _content: null,
@@ -121,6 +121,7 @@ const CMS = {
         this._content = JSON.parse(stored);
         this._ensureArrays();
         if (defaults) this._mergeDefaults(defaults);
+        this._applyContentVersion(defaults);
         return this._content;
       } catch (_) { /* continue */ }
     }
@@ -128,6 +129,7 @@ const CMS = {
     if (defaults) {
       this._content = defaults;
       this._ensureArrays();
+      this._content.contentVersion = this.CONTENT_VERSION;
       try { localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this._content)); } catch (_) {}
       return this._content;
     }
@@ -136,6 +138,14 @@ const CMS = {
     if (defaults) this._mergeDefaults(defaults);
     this._ensureArrays();
     return this._content;
+  },
+
+  _applyContentVersion(defaults) {
+    const v = this._content.contentVersion || 0;
+    if (v >= this.CONTENT_VERSION || !defaults) return;
+    if (defaults.studios?.length) this._content.studios = defaults.studios;
+    this._content.contentVersion = this.CONTENT_VERSION;
+    try { localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this._content)); } catch (_) {}
   },
 
   _mergeDefaults(defaults) {

@@ -2002,6 +2002,8 @@ textarea {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 28px;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 .studio-card {

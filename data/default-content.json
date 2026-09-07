@@ -70,33 +70,13 @@
   "studios": [
     {
       "id": "s1",
-      "name": "Control Room A",
-      "capacity": "2–4 people",
-      "size": "180 sq ft",
-      "description": "Our flagship control room featuring acoustic treatment, Genelec monitors, and a Universal Audio Apollo interface chain for precision mixing and mastering.",
-      "features": ["Genelec 8030 monitors", "UA Apollo x8", "Pro Tools & Logic Pro", "Acoustic-treated environment"],
-      "image": "",
-      "hourlyRate": 2500
-    },
-    {
-      "id": "s2",
-      "name": "Live Room",
+      "name": "Book The Studio",
       "capacity": "4–8 people",
       "size": "320 sq ft",
-      "description": "Spacious live room with isolation booths, ideal for band recordings, vocal sessions, and instrument tracking with natural room ambience.",
+      "description": "Our live room — acoustically treated and ready for vocal sessions, band recordings, and instrument tracking. One professional space, booked by the hour.",
       "features": ["Isolation vocal booth", "Drum kit setup", "Multiple mic preamps", "Variable room dampening"],
       "image": "",
-      "hourlyRate": 3000
-    },
-    {
-      "id": "s3",
-      "name": "Production Suite",
-      "capacity": "1–2 people",
-      "size": "120 sq ft",
-      "description": "Compact creative space for beat-making, MIDI composition, and voiceover recording — perfect for solo artists and podcast creators.",
-      "features": ["MIDI controller station", "Vocal booth", "Headphone monitoring", "Sample library access"],
-      "image": "",
-      "hourlyRate": 2000
+      "hourlyRate": 700
     }
   ],
   "packages": [

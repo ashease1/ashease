@@ -168,7 +168,7 @@ async function renderStudios() {
         <p>${s.description}</p>
         <ul class="studio-features">${(s.features || []).map(f => `<li>${f}</li>`).join('')}</ul>
         <div class="studio-book-btn">
-          <a href="#booking" class="btn-secondary btn-full studio-select-btn" data-studio="${s.id}">Book This Room</a>
+          <a href="#booking" class="btn-secondary btn-full studio-select-btn" data-studio="${s.id}">Book The Studio</a>
         </div>
       </div>
     </article>`;

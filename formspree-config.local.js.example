@@ -1,0 +1,9 @@
+// Copy to formspree-config.local.js and set your Formspree form ID(s).
+// Create forms at https://formspree.io/ with notification email: agrahari778@gmail.com
+// formspree-config.local.js is gitignored — never commit the real file.
+//
+// You can use one form for both contact + booking, or separate IDs.
+window.__SS_FORMS_CONFIG = {
+  contactFormId: 'your-formspree-id',
+  bookingFormId: 'your-formspree-id'
+};

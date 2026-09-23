@@ -25,7 +25,7 @@ Silent Studio is a specialized audio production suite and creative hub dedicated
   * **Address:** No. 62, 2nd Cross, JP Nagar Phase 7, Near Aishwarya Apartment, Bangalore, Karnataka, 560078
   * **Mobile:** +91 8904799835
   * **Email:** agrahari778@gmail.com
-  * **Digital Presence:** [silentstudio.appv.biz](https://www.google.com/url?sa=E&source=gmail&q=https://silentstudio.appv.biz)
+  * **Digital Presence:** [silentstudio.vercel.app](https://silentstudio.vercel.app/)
 
 The "Cinematic Visionary" theme focuses on a high-end, atmospheric, and emotional aesthetic. It uses deep shadows, "God-ray" lighting effects, and premium textures to position Silent Studios as a top-tier creative partner in Music & Media.
 

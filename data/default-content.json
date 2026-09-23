@@ -1,8 +1,8 @@
 {
   "tracks": [
-    { "id": "t1", "title": "Never Giving Up", "genre": "Original Track", "audio": "never-giving-up.mp3" },
-    { "id": "t2", "title": "Reach", "genre": "Original Track", "audio": "reach.mp3" },
-    { "id": "t3", "title": "Heal With Music", "genre": "Original Track", "audio": "heal-with-music.mp3" }
+    { "id": "t1", "title": "Never Giving Up", "genre": "Original Track", "audio": "assets/audio/never-giving-up.mp3" },
+    { "id": "t2", "title": "Reach", "genre": "Original Track", "audio": "assets/audio/reach.mp3" },
+    { "id": "t3", "title": "Heal With Music", "genre": "Original Track", "audio": "assets/audio/heal-with-music.mp3" }
   ],
   "projects": [
     {
@@ -11,9 +11,9 @@
       "category": "music-production",
       "client": "Independent Artist",
       "year": "2025",
-      "description": "Full production — composition, arrangement, mixing and mastering for an uplifting indie track.",
+      "description": "Full production - composition, arrangement, mixing and mastering for an uplifting indie track.",
       "image": "",
-      "audio": "never-giving-up.mp3",
+      "audio": "assets/audio/never-giving-up.mp3",
       "video": ""
     },
     {
@@ -24,7 +24,7 @@
       "year": "2025",
       "description": "Dynamic pop production with layered vocals and cinematic builds.",
       "image": "",
-      "audio": "reach.mp3",
+      "audio": "assets/audio/reach.mp3",
       "video": ""
     },
     {
@@ -35,18 +35,7 @@
       "year": "2024",
       "description": "Ambient therapeutic score designed for meditation and healing content.",
       "image": "",
-      "audio": "heal-with-music.mp3",
-      "video": ""
-    },
-    {
-      "id": "p4",
-      "title": "Brand Film Score",
-      "category": "media-scoring",
-      "client": "Commercial Client",
-      "year": "2024",
-      "description": "Custom orchestral-adjacent score for a 60-second brand film.",
-      "image": "",
-      "audio": "",
+      "audio": "assets/audio/heal-with-music.mp3",
       "video": ""
     }
   ],
@@ -71,7 +60,7 @@
     {
       "id": "s1",
       "name": "Book The Studio",
-      "capacity": "4–8 people",
+      "capacity": "4-8 people",
       "size": "320 sq ft",
       "description": "Our live room — acoustically treated and ready for vocal sessions, band recordings, and instrument tracking. One professional space, booked by the hour.",
       "features": ["Isolation vocal booth", "Drum kit setup", "Multiple mic preamps", "Variable room dampening"],

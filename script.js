@@ -157,7 +157,7 @@ async function renderStudios() {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
               <span>Studio room</span>
             </div>`}
-        <span class="studio-rate">₹${(s.hourlyRate || 0).toLocaleString('en-IN')}/hr</span>
+        <span class="studio-rate">&#8377;${(s.hourlyRate || 0).toLocaleString('en-IN')}/hr</span>
       </div>
       <div class="studio-body">
         <h3>${s.name}</h3>
@@ -279,8 +279,8 @@ async function renderVideos() {
 
   const items = videos.filter(v => v.src);
   if (!items.length) {
-    if (section) section.hidden = true;
-    grid.innerHTML = '';
+    if (section) section.hidden = false;
+    grid.innerHTML = '<p class="section-desc">No videos uploaded yet. Use the admin panel to add videos.</p>';
     return;
   }
   if (section) section.hidden = false;
@@ -337,7 +337,7 @@ function initStudioBookingOptions() {
   if (studioOpts) {
     studioOpts.innerHTML = studios.map((s, i) => `
       <div class="option-card ${i === 0 ? 'selected' : ''}" data-value="${s.id}">
-        <h4>${s.name}</h4><span>₹${(s.hourlyRate || 0).toLocaleString('en-IN')}/hr</span>
+        <h4>${s.name}</h4><span>&#8377;${(s.hourlyRate || 0).toLocaleString('en-IN')}/hr</span>
       </div>
     `).join('');
     bookingState.studio = studios[0]?.id || null;
@@ -409,10 +409,22 @@ function initBookingWizard() {
   initFileUpload();
 
   prevBtn?.addEventListener('click', () => goStep(currentStep - 1));
-  nextBtn?.addEventListener('click', () => {
+  nextBtn?.addEventListener('click', async () => {
     if (!validateStep(currentStep)) return;
-    if (currentStep === totalSteps) submitBooking();
-    else goStep(currentStep + 1);
+    if (currentStep === totalSteps) {
+      const label = nextBtn.textContent;
+      nextBtn.disabled = true;
+      nextBtn.textContent = 'Sending...';
+      try {
+        await submitBooking();
+      } catch (err) {
+        alert(err.message || 'Could not send booking. Please try WhatsApp or email.');
+        nextBtn.disabled = false;
+        nextBtn.textContent = label;
+      }
+      return;
+    }
+    goStep(currentStep + 1);
   });
 
   function goStep(step) {
@@ -523,19 +535,25 @@ function initBookingWizard() {
     el.innerHTML = `
       <h4>Booking Summary</h4>
       <div class="summary-row"><span>Service</span><span>${CATEGORY_LABELS[bookingState.service] || bookingState.service}</span></div>
-      <div class="summary-row"><span>Studio</span><span>${studio?.name || '—'}</span></div>
+      <div class="summary-row"><span>Studio</span><span>${studio?.name || '&mdash;'}</span></div>
       <div class="summary-row"><span>Package</span><span>${pkg?.name || 'Pay as you go'}</span></div>
-      <div class="summary-row"><span>Date</span><span>${bookingState.date || '—'}</span></div>
-      <div class="summary-row"><span>Time</span><span>${bookingState.time || '—'}</span></div>
+      <div class="summary-row"><span>Date</span><span>${bookingState.date || '&mdash;'}</span></div>
+      <div class="summary-row"><span>Time</span><span>${bookingState.time || '&mdash;'}</span></div>
       <div class="summary-row"><span>Duration</span><span>${bookingState.duration} hours</span></div>
-      <div class="summary-row"><span>Project</span><span>${document.getElementById('projectName')?.value || '—'}</span></div>
+      <div class="summary-row"><span>Project</span><span>${document.getElementById('projectName')?.value || '&mdash;'}</span></div>
     `;
   }
 
-  function submitBooking() {
+  async function submitBooking() {
+    const { studios, packages } = getContent();
+    const studio = studios.find(s => s.id === bookingState.studio);
+    const pkg = packages.find(p => p.id === bookingState.package);
+
     const booking = {
       id: Date.now(),
       ...bookingState,
+      studioName: studio?.name || '',
+      packageName: pkg?.name || 'Pay as you go',
       projectName: document.getElementById('projectName')?.value,
       projectBrief: document.getElementById('projectBrief')?.value,
       budget: document.getElementById('budgetRange')?.value,
@@ -546,6 +564,27 @@ function initBookingWizard() {
       notes: document.getElementById('bookNotes')?.value,
       createdAt: new Date().toISOString()
     };
+
+    await SS_FORMS.submit(SS_FORMS.bookingEndpoint(), {
+      _subject: 'Silent Studios - Booking Request',
+      _replyto: booking.email,
+      formType: 'booking',
+      name: booking.name,
+      email: booking.email,
+      phone: booking.phone,
+      service: CATEGORY_LABELS[booking.service] || booking.service,
+      studio: booking.studioName,
+      package: booking.packageName,
+      date: booking.date,
+      time: booking.time,
+      durationHours: booking.duration,
+      projectName: booking.projectName,
+      projectBrief: booking.projectBrief,
+      budget: booking.budget,
+      urgency: booking.urgency,
+      referenceFiles: (booking.files || []).join(', '),
+      notes: booking.notes
+    });
 
     const bookings = JSON.parse(localStorage.getItem(BOOKINGS_KEY) || '[]');
     bookings.push(booking);
@@ -811,18 +850,43 @@ function initAudioPlayer() {
 function initContactForm() {
   const form = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
-  form?.addEventListener('submit', e => {
+  const errorEl = document.getElementById('formError');
+  form?.addEventListener('submit', async e => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending…';
+    const name = form.name?.value?.trim();
+    const email = form.email?.value?.trim();
+    const projectType = form.projectType?.value;
+    const message = form.message?.value?.trim();
+
+    errorEl?.classList.remove('show');
+    btn.textContent = 'Sending...';
     btn.disabled = true;
-    setTimeout(() => {
+
+    try {
+      await SS_FORMS.submit(SS_FORMS.contactEndpoint(), {
+        _subject: 'Silent Studios - Contact Message',
+        _replyto: email,
+        formType: 'contact',
+        name,
+        email,
+        projectType,
+        message
+      });
       success?.classList.add('show');
       form.reset();
+      setTimeout(() => success?.classList.remove('show'), 5000);
+    } catch (err) {
+      if (errorEl) {
+        errorEl.textContent = err.message || 'Could not send message. Email agrahari778@gmail.com directly.';
+        errorEl.classList.add('show');
+      } else {
+        alert(err.message);
+      }
+    } finally {
       btn.textContent = 'Send Message';
       btn.disabled = false;
-      setTimeout(() => success?.classList.remove('show'), 5000);
-    }, 1200);
+    }
   });
 }
 

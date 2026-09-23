@@ -805,9 +805,19 @@ textarea {
   gap: 4px;
 }
 
+.service-link::after {
+  content: '\2192';
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
 .service-link:hover {
   gap: 8px;
   text-shadow: 0 0 10px var(--cyan-glow);
+}
+
+.service-link:hover::after {
+  transform: translateX(3px);
 }
 
 /* ── PORTFOLIO ─────────────────────────────── */
@@ -1526,6 +1536,21 @@ textarea {
   display: block;
   margin-bottom: 12px;
   font-size: 0.85rem;
+}
+
+.form-error {
+  display: none;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  color: #ff8a8a;
+  background: rgba(255, 107, 107, 0.12);
+  border: 1px solid rgba(255, 107, 107, 0.35);
+}
+
+.form-error.show {
+  display: block;
 }
 
 .form-success {

@@ -6,9 +6,11 @@
 const CMS = {
   STORAGE_KEY: 'silent_studios_content',
   AUTH_KEY: 'silent_studios_admin_auth',
-  ADMIN_PASS: 'K9#mPx7vQ2nL4wR8j',
+  ADMIN_PASS: (typeof window !== 'undefined' && window.__SS_ADMIN_CONFIG?.password) || 'Jot_robot@123',
   DB_NAME: 'SilentStudiosMedia',
+  DB_VERSION: 1,
   CONTENT_VERSION: 2,
+  LOGIN_ATTEMPTS_KEY: 'silent_studios_admin_attempts',
 
   _db: null,
   _content: null,
@@ -27,11 +29,69 @@ const CMS = {
   },
 
   login(password) {
+    console.log('Login attempt - ADMIN_PASS:', this.ADMIN_PASS, 'Input:', password);
+    if (!this.ADMIN_PASS) return false;
+    // Temporarily disable lockout for testing
+    // const attempts = this._loginAttempts();
+    // if (attempts.count >= 5 && Date.now() - attempts.lastAt < 15 * 60 * 1000) {
+    //   return false;
+    // }
     if (password === this.ADMIN_PASS) {
       sessionStorage.setItem(this.AUTH_KEY, 'true');
+      sessionStorage.removeItem(this.LOGIN_ATTEMPTS_KEY);
       return true;
     }
+    // Temporarily disable attempt tracking for testing
+    // attempts.count += 1;
+    // attempts.lastAt = Date.now();
+    // sessionStorage.setItem(this.LOGIN_ATTEMPTS_KEY, JSON.stringify(attempts));
     return false;
+  },
+
+  _loginAttempts() {
+    try {
+      const raw = sessionStorage.getItem(this.LOGIN_ATTEMPTS_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (_) { /* ignore */ }
+    return { count: 0, lastAt: 0 };
+  },
+
+  isLoginLocked() {
+    if (!this.ADMIN_PASS) return true;
+    const attempts = this._loginAttempts();
+    return attempts.count >= 5 && Date.now() - attempts.lastAt < 15 * 60 * 1000;
+  },
+
+  adminConfigured() {
+    return Boolean(this.ADMIN_PASS);
+  },
+
+  /** Fix common UTF-8-as-Latin1 mojibake in CMS strings */
+  fixTextEncoding(str) {
+    if (typeof str !== 'string' || !str) return str;
+    return str
+      .replace(/\u2019/g, "'")
+      .replace(/\u2018/g, "'")
+      .replace(/\u201C|\u201D/g, '"')
+      .replace(/\u2013|\u2014/g, '-')
+      .replace(/\u2192/g, '->')
+      .replace(/â€™/g, "'")
+      .replace(/â€˜/g, "'")
+      .replace(/â€œ|â€\u009d/g, '"')
+      .replace(/â€"|â€"/g, '-')
+      .replace(/â†'/g, '->')
+      .replace(/â‚¹/g, 'Rs.');
+  },
+
+  _sanitizeContent(obj) {
+    if (typeof obj === 'string') return this.fixTextEncoding(obj);
+    if (Array.isArray(obj)) return obj.map(item => this._sanitizeContent(item));
+    if (obj && typeof obj === 'object') {
+      const out = {};
+      for (const [k, v] of Object.entries(obj)) out[k] = this._sanitizeContent(v);
+      return out;
+    }
+    return obj;
   },
 
   logout() {
@@ -65,9 +125,30 @@ const CMS = {
     });
   },
 
+  normalizeMediaPath(ref) {
+    if (!ref || ref.startsWith('idb:') || /^https?:\/\//i.test(ref)) return ref;
+    if (ref.startsWith('assets/')) return ref;
+    if (/\.(mp3|wav|ogg|m4a|flac)$/i.test(ref)) {
+      const name = ref.split('/').pop();
+      return `assets/audio/${name}`;
+    }
+    return ref;
+  },
+
+  _normalizeContentPaths(content) {
+    const c = content;
+    (c.tracks || []).forEach(t => {
+      if (t.audio) t.audio = this.normalizeMediaPath(t.audio);
+    });
+    (c.projects || []).forEach(p => {
+      if (p.audio) p.audio = this.normalizeMediaPath(p.audio);
+    });
+    return c;
+  },
+
   async getMediaUrl(ref) {
     if (!ref) return '';
-    if (!ref.startsWith('idb:')) return ref;
+    if (!ref.startsWith('idb:')) return this.normalizeMediaPath(ref);
     const id = ref.slice(4);
     await this.initDB();
     return new Promise((resolve, reject) => {
@@ -96,9 +177,9 @@ const CMS = {
   defaultContent() {
     return {
       tracks: [
-        { id: 't1', title: 'Never Giving Up', genre: 'Original Track', audio: 'never-giving-up.mp3' },
-        { id: 't2', title: 'Reach', genre: 'Original Track', audio: 'reach.mp3' },
-        { id: 't3', title: 'Heal With Music', genre: 'Original Track', audio: 'heal-with-music.mp3' }
+        { id: 't1', title: 'Never Giving Up', genre: 'Original Track', audio: 'assets/audio/never-giving-up.mp3' },
+        { id: 't2', title: 'Reach', genre: 'Original Track', audio: 'assets/audio/reach.mp3' },
+        { id: 't3', title: 'Heal With Music', genre: 'Original Track', audio: 'assets/audio/heal-with-music.mp3' }
       ],
       projects: [],
       gallery: [],
@@ -118,17 +199,20 @@ const CMS = {
     const stored = localStorage.getItem(this.STORAGE_KEY);
     if (stored) {
       try {
-        this._content = JSON.parse(stored);
+        this._content = this._sanitizeContent(JSON.parse(stored));
         this._ensureArrays();
+        this._normalizeContentPaths(this._content);
         if (defaults) this._mergeDefaults(defaults);
         this._applyContentVersion(defaults);
+        this._normalizeContentPaths(this._content);
         return this._content;
       } catch (_) { /* continue */ }
     }
 
     if (defaults) {
-      this._content = defaults;
+      this._content = this._sanitizeContent(defaults);
       this._ensureArrays();
+      this._normalizeContentPaths(this._content);
       this._content.contentVersion = this.CONTENT_VERSION;
       try { localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this._content)); } catch (_) {}
       return this._content;
@@ -199,7 +283,7 @@ const CMS = {
     a.click();
     URL.revokeObjectURL(a.href);
 
-    alert(`File is large (${(file.size / 1024 / 1024).toFixed(1)} MB).\n\n1. Save the downloaded file to: ${suggestedPath}\n2. The path "${suggestedPath}" has been set automatically.\n3. When you deploy to Netlify, include this file in your folder.`);
+    alert(`File is large (${(file.size / 1024 / 1024).toFixed(1)} MB).\n\n1. Save the downloaded file to: ${suggestedPath}\n2. The path "${suggestedPath}" has been set automatically.\n3. When you deploy to Vercel, include this file in your folder and redeploy.`);
     return suggestedPath;
   },
 

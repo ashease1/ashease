@@ -18,20 +18,36 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     initAdminUI();
+    revealAdminEntryIfAllowed();
     if (CMS.isAdmin()) showAdminMode();
     if (location.hash === '#admin') openAdminLogin();
+
+    document.addEventListener('keydown', e => {
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+        e.preventDefault();
+        openAdminLogin();
+      }
+    });
   });
 
   function initAdminUI() {
     document.getElementById('adminLoginBtn')?.addEventListener('click', openAdminLogin);
     document.getElementById('adminLoginForm')?.addEventListener('submit', e => {
       e.preventDefault();
+      const errEl = document.getElementById('adminLoginError');
+      // Temporarily disable lockout check for testing
+      // if (CMS.isLoginLocked()) {
+      //   errEl.textContent = 'Too many attempts. Wait 15 minutes and try again.';
+      //   errEl.hidden = false;
+      //   return;
+      // }
       if (CMS.login(document.getElementById('adminLoginPass').value)) {
         closeAdminLogin();
         showAdminMode();
         openAdminPanel();
       } else {
-        document.getElementById('adminLoginError').hidden = false;
+        errEl.textContent = 'Incorrect password. Try again.';
+        errEl.hidden = false;
       }
     });
     document.getElementById('adminLoginClose')?.addEventListener('click', closeAdminLogin);
@@ -58,6 +74,17 @@
     document.getElementById('adminAddBtn')?.addEventListener('click', () => showAdminForm());
   }
 
+  function revealAdminEntryIfAllowed() {
+    const btn = document.getElementById('adminLoginBtn');
+    if (!btn) return;
+    const host = location.hostname;
+    const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '';
+    if (isLocal) {
+      btn.classList.remove('hidden');
+      btn.removeAttribute('aria-hidden');
+    }
+  }
+
   function openAdminLogin() {
     document.getElementById('adminLoginModal')?.classList.add('open');
     document.getElementById('adminLoginPass')?.focus();
@@ -72,13 +99,11 @@
   function showAdminMode() {
     document.body.classList.add('admin-mode');
     document.getElementById('adminFab')?.classList.remove('hidden');
-    document.getElementById('adminLoginBtn')?.classList.add('hidden');
   }
 
   function hideAdminMode() {
     document.body.classList.remove('admin-mode');
     document.getElementById('adminFab')?.classList.add('hidden');
-    document.getElementById('adminLoginBtn')?.classList.remove('hidden');
   }
 
   function openAdminPanel() {
